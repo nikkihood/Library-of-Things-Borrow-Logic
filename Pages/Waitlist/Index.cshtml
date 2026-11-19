@@ -1,0 +1,40 @@
+@page
+@model LibraryOfThingsM4.Pages.Waitlist.IndexModel
+
+@{
+    ViewData["Title"] = "Waitlist";
+}
+
+<h1>Waitlist</h1>
+
+<p><a asp-page="Create">Add to Waitlist</a></p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Item ID</th>
+            <th>Member ID</th>
+            <th>Request Date</th>
+            <th>Notified</th>
+            <th>Received</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var entry in Model.Waitlists)
+        {
+            <tr>
+                <td>@entry.ItemId</td>
+                <td>@entry.MemberId</td>
+                <td>@entry.RequestDate</td>
+                <td>@entry.Nortified</td>
+                <td>@entry.Recieved</td>
+                <td>
+                    <a asp-page="./Edit" asp-route-itemid="@entry.ItemId" asp-route-memberid="@entry.MemberId">Edit</a> |
+                    <a asp-page="./Details" asp-route-itemid="@entry.ItemId" asp-route-memberid="@entry.MemberId">Details</a> |
+                    <a asp-page="./Delete" asp-route-itemid="@entry.ItemId" asp-route-memberid="@entry.MemberId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

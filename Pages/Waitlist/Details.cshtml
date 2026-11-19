@@ -1,0 +1,24 @@
+@page
+@model LibraryOfThingsM4.Pages.Waitlist.DetailsModel
+
+@{
+    ViewData["Title"] = "Waitlist Details";
+}
+
+<h1>Waitlist Details</h1>
+<dl class="row">
+    <dt class="col-sm-3">Item ID</dt>
+    <dd class="col-sm-9">@Model.Waitlist.ItemId</dd>
+    <dt class="col-sm-3">Member ID</dt>
+    <dd class="col-sm-9">@Model.Waitlist.MemberId</dd>
+    <dt class="col-sm-3">Request Date</dt>
+    <dd class="col-sm-9">@Model.Waitlist.RequestDate</dd>
+    <dt class="col-sm-3">Notified</dt>
+    <dd class="col-sm-9">@Model.Waitlist.Nortified</dd>
+    <dt class="col-sm-3">Received</dt>
+    <dd class="col-sm-9">@Model.Waitlist.Recieved</dd>
+</dl>
+<p>
+    <a asp-page="./Edit" asp-route-itemid="@Model.Waitlist.ItemId" asp-route-memberid="@Model.Waitlist.MemberId">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</p>

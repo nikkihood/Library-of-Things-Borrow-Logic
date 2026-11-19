@@ -1,0 +1,48 @@
+@page
+@model LibraryOfThingsM4.Pages.DonorPages.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Donor[0].DonorId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Donor[0].DonationDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Donor[0].Description)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Donor) {
+        <tr>
+            <td>
+                @Html.DisplayFor(model => item.DonorId)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.DonationDate)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Description)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-donorid="@item.DonorId">Edit</a> |
+                <a asp-page="./Details" asp-route-donorid="@item.DonorId">Details</a> |
+                <a asp-page="./Delete" asp-route-donorid="@item.DonorId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,60 @@
+@page
+@model LibraryOfThingsM4.Pages.ItemPages.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Item</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Item.Name" class="control-label"></label>
+                <input asp-for="Item.Name" class="form-control" />
+                <span asp-validation-for="Item.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Item.SerialNumber" class="control-label"></label>
+                <input asp-for="Item.SerialNumber" class="form-control" />
+                <span asp-validation-for="Item.SerialNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Item.Status" class="control-label"></label>
+                <input asp-for="Item.Status" class="form-control" />
+                <span asp-validation-for="Item.Status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Item.ReplacementValue" class="control-label"></label>
+                <input asp-for="Item.ReplacementValue" class="form-control" />
+                <span asp-validation-for="Item.ReplacementValue" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Item.DonorId" class="control-label"></label>
+                <select asp-for="Item.DonorId" asp-items="Model.DonorOptions" class="form-select">
+                    <option value="0">-- Select a donor --</option>
+                </select>
+                <span asp-validation-for="Item.DonorId" class="text-danger"></span>
+            </div>
+            @if (!Model.DonorOptions.Any())
+            {
+                <p class="text-danger">No donors are available. Create a donor before creating an item.</p>
+            }
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

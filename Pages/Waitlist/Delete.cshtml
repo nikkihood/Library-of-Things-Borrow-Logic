@@ -1,0 +1,27 @@
+@page
+@model LibraryOfThingsM4.Pages.Waitlist.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete Waitlist Entry";
+}
+
+<h1>Delete Waitlist Entry</h1>
+<h3>Are you sure you want to delete this entry?</h3>
+<dl class="row">
+    <dt class="col-sm-3">Item ID</dt>
+    <dd class="col-sm-9">@Model.Waitlist.ItemId</dd>
+    <dt class="col-sm-3">Member ID</dt>
+    <dd class="col-sm-9">@Model.Waitlist.MemberId</dd>
+    <dt class="col-sm-3">Request Date</dt>
+    <dd class="col-sm-9">@Model.Waitlist.RequestDate</dd>
+    <dt class="col-sm-3">Notified</dt>
+    <dd class="col-sm-9">@Model.Waitlist.Nortified</dd>
+    <dt class="col-sm-3">Received</dt>
+    <dd class="col-sm-9">@Model.Waitlist.Recieved</dd>
+</dl>
+<form method="post">
+    <input type="hidden" asp-for="Waitlist.ItemId" />
+    <input type="hidden" asp-for="Waitlist.MemberId" />
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a asp-page="./Index" class="btn btn-secondary">Cancel</a>
+</form>

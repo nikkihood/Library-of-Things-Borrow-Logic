@@ -1,0 +1,66 @@
+@page
+@model LibraryOfThingsM4.Pages.ItemPages.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Item[0].ItemId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Item[0].Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Item[0].SerialNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Item[0].Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Item[0].ReplacementValue)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Item[0].DonorId)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Item) {
+        <tr>
+            <td>
+                @Html.DisplayFor(model => item.ItemId)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.SerialNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.ReplacementValue)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.DonorId)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-itemid="@item.ItemId">Edit</a> |
+                <a asp-page="./Details" asp-route-itemid="@item.ItemId">Details</a> |
+                <a asp-page="./Delete" asp-route-itemid="@item.ItemId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
